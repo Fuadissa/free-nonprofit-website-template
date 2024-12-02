@@ -807,6 +807,13 @@
                 class="img-fluid gallery-image-card"
               />
             </div>
+            <div class="gallery-grid-card">
+              <img
+                src="img/cs-banner3.jpg"
+                alt="Image"
+                class="img-fluid gallery-image-card"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -969,23 +976,29 @@
     <script>
       // Countdown Timer
       function updateCountdown() {
-        const eventStartDate = new Date('December 25, 2024 00:00:00').getTime();
-        const eventEndDate = new Date('December 26, 2024 00:00:00').getTime();
+        const eventStartDate = new Date("December 25, 2024 00:00:00").getTime();
+        const eventEndDate = new Date("December 26, 2024 00:00:00").getTime();
         const now = new Date().getTime();
         const countdownNumbers = document.getElementById("countdown-numbers");
-    
+
         if (now < eventStartDate) {
           const distance = eventStartDate - now;
           const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
+          );
           const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-          countdownNumbers.innerHTML = `${days.toString().padStart(2, '0')} : ${hours
+
+          countdownNumbers.innerHTML = `${days
             .toString()
-            .padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds
+            .padStart(2, "0")} : ${hours
             .toString()
-            .padStart(2, '0')}`;
+            .padStart(2, "0")} : ${minutes
+            .toString()
+            .padStart(2, "0")} : ${seconds.toString().padStart(2, "0")}`;
         } else if (now >= eventStartDate && now < eventEndDate) {
           countdownNumbers.innerHTML = "Event Ongoing";
           document.getElementById("countdown-labels").style.display = "none";
@@ -994,24 +1007,24 @@
           document.getElementById("countdown-labels").style.display = "none";
         }
       }
-    
+
       // Update the countdown every second
       setInterval(updateCountdown, 1000);
       updateCountdown(); // Initial call
     </script>
-    
+
     <style>
       #countdown {
         margin: 20px 0;
       }
-    
+
       #countdown-numbers {
         font-size: 64px;
         color: #ff4500;
         font-weight: bold;
         line-height: 1.2;
       }
-    
+
       #countdown-labels {
         display: flex;
         justify-content: center;
@@ -1021,7 +1034,7 @@
         font-weight: bold;
         color: #444;
       }
-    
+
       #countdown-labels span {
         text-align: center;
       }
