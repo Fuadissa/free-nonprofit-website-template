@@ -125,7 +125,7 @@
             <a href="contact.html" class="nav-item nav-link">Contact</a>
           </div>
           <div class="d-none d-lg-flex ms-2">
-            <a class="btn btn-outline-primary py-2 px-3" href="">
+            <a class="btn btn-outline-primary py-2 px-3" href="donate.html">
               Donate Now
               <div
                 class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2"
@@ -147,7 +147,7 @@
             <img
               class="w-100 vh-100"
               style="object-fit: cover"
-              src="img/carousel-1.jpg"
+              src="img/chrismas-banner.jpg"
               alt="Image"
             />
 
@@ -164,7 +164,7 @@
                     </p>
                     <a
                       class="btn btn-primary py-2 px-3 animated slideInDown"
-                      href=""
+                      href="about.html"
                     >
                       Learn More
                       <div
@@ -279,7 +279,7 @@
                 take charge of their destinies, challenge societal norms, and
                 build a future filled with hope and opportunity
               </p>
-              <a class="btn btn-primary py-2 px-3 me-3" href="">
+              <a class="btn btn-primary py-2 px-3 me-3" href="about.html">
                 About Us
                 <div
                   class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2"
@@ -287,7 +287,7 @@
                   <i class="fa fa-arrow-right"></i>
                 </div>
               </a>
-              <a class="btn btn-outline-primary py-2 px-3" href="">
+              <a class="btn btn-outline-primary py-2 px-3" href="contact.html">
                 Contact Us
                 <div
                   class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2"
@@ -361,7 +361,7 @@
               <div class="position-relative mt-auto">
                 <img class="img-fluid" src="img/courses-1.jpg" alt="" />
                 <div class="causes-overlay">
-                  <a class="btn btn-outline-primary" href="">
+                  <a class="btn btn-outline-primary" href="donate.html">
                     Donate Now
                     <div
                       class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2"
@@ -506,7 +506,7 @@
                 Educating girls transforms lives, empowering them with
                 knowledge, confidence, and opportunities for brighter futures.
               </p>
-              <a class="btn btn-outline-primary px-3" href="">
+              <a class="btn btn-outline-primary px-3" href="about.html">
                 Learn More
                 <div
                   class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2"
@@ -525,7 +525,7 @@
                 well-being and strengthening entire communities.
               </p>
 
-              <a class="btn btn-outline-primary px-3" href="">
+              <a class="btn btn-outline-primary px-3" href="about.html">
                 Learn More
                 <div
                   class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2"
@@ -543,7 +543,7 @@
                 Clean water is essential for health, reducing disease and
                 ensuring sustainable development.
               </p>
-              <a class="btn btn-outline-primary px-3" href="">
+              <a class="btn btn-outline-primary px-3" href="about.html">
                 Learn More
                 <div
                   class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2"
@@ -769,6 +769,50 @@
     </div>
     <!-- Team End -->
 
+    <!-- Gallery Start -->
+    <div class="container-fluid py-5">
+      <div class="container">
+        <div class="gallery-container">
+          <h1>Upcoming Events</h1>
+          <!-- Countdown Timer -->
+          <div id="countdown" style="text-align: center; margin-bottom: 20px">
+            <div
+              id="countdown-numbers"
+              style="font-size: 48px; font-weight: bold"
+            ></div>
+            <div id="countdown-labels" style="font-size: 20px">
+              <span>Days</span> <span>Hours</span> <span>Minutes</span>
+              <span>Seconds</span>
+            </div>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-grid-card">
+              <img
+                src="img/chrismas-banner.jpg"
+                alt="Image"
+                class="img-fluid gallery-image-card"
+              />
+            </div>
+            <div class="gallery-grid-card">
+              <img
+                src="img/cs-banner1.jpg"
+                alt="Image"
+                class="img-fluid gallery-image-card"
+              />
+            </div>
+            <div class="gallery-grid-card">
+              <img
+                src="img/cs-banner2.jpg"
+                alt="Image"
+                class="img-fluid gallery-image-card"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Gallery End -->
+
     <!-- Testimonial Start -->
     <div class="container-xxl py-5">
       <div class="container">
@@ -921,6 +965,67 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
       ><i class="bi bi-arrow-up"></i
     ></a>
+
+    <script>
+      // Countdown Timer
+      function updateCountdown() {
+        const eventStartDate = new Date('December 25, 2024 00:00:00').getTime();
+        const eventEndDate = new Date('December 26, 2024 00:00:00').getTime();
+        const now = new Date().getTime();
+        const countdownNumbers = document.getElementById("countdown-numbers");
+    
+        if (now < eventStartDate) {
+          const distance = eventStartDate - now;
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+          countdownNumbers.innerHTML = `${days.toString().padStart(2, '0')} : ${hours
+            .toString()
+            .padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds
+            .toString()
+            .padStart(2, '0')}`;
+        } else if (now >= eventStartDate && now < eventEndDate) {
+          countdownNumbers.innerHTML = "Event Ongoing";
+          document.getElementById("countdown-labels").style.display = "none";
+        } else {
+          countdownNumbers.innerHTML = "Event Ended";
+          document.getElementById("countdown-labels").style.display = "none";
+        }
+      }
+    
+      // Update the countdown every second
+      setInterval(updateCountdown, 1000);
+      updateCountdown(); // Initial call
+    </script>
+    
+    <style>
+      #countdown {
+        margin: 20px 0;
+      }
+    
+      #countdown-numbers {
+        font-size: 64px;
+        color: #ff4500;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+    
+      #countdown-labels {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #444;
+      }
+    
+      #countdown-labels span {
+        text-align: center;
+      }
+    </style>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
